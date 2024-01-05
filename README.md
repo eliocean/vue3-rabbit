@@ -34,9 +34,14 @@ npm run build
 npm run lint
 ```
 
-### Use [Element Plus](https://element-plus.org/zh-CN/guide/quickstart.html)
+### 组件库： Use [Element Plus](https://element-plus.org/zh-CN/guide/quickstart.html)
 ```sh
 npm install element-plus --save
 
 npm install -D unplugin-vue-components unplugin-auto-import
+```
+
+### 主题色：Use [Sass]
+```sh
+npm i sass -D
 ```
