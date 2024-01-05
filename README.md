@@ -33,3 +33,10 @@ npm run build
 ```sh
 npm run lint
 ```
+
+### Use [Element Plus](https://element-plus.org/zh-CN/guide/quickstart.html)
+```sh
+npm install element-plus --save
+
+npm install -D unplugin-vue-components unplugin-auto-import
+```
