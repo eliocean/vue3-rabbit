@@ -1,0 +1,10 @@
+// vscode 启东时会自动读取此文件（文件名固定）
+{
+  "compilerOptions": {
+    "paths": {
+      // 别名路径联想提示： 输入 @ vscode联想./src/
+      "@/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
