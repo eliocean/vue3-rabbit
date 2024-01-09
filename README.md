@@ -55,3 +55,9 @@ npm i axios
 ```
 
 ### 图标库 Use [iconfont](https://www.iconfont.cn/)
+
+### vue3函数库 [VueUse](https://vueuse.org/guide/)
+
+```sh
+npm i @vueuse/core
+```
