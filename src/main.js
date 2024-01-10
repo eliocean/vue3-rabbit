@@ -2,33 +2,21 @@ import '@/styles/common.scss' // 引入初始化样式文件
 
 
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-
 import App from './App.vue'
-import router from './router'
-
 const app = createApp(App)
 
+
+import { createPinia } from 'pinia'
 app.use(createPinia())
+
+
+import router from './router'
 app.use(router)
 
-app.mount('#app')
 
-import { useIntersectionObserver } from '@vueuse/core'
+// 引入自定义的图片懒加载插件
+import { imgLazyLoadPlugin } from '@/directives'
+app.use(imgLazyLoadPlugin);
 
-// 自定义全局指令
-app.directive('img-lazy', {
-    mounted(el, binding) {
-        // console.log(el, binding.value);
-        useIntersectionObserver(
-            el,
-            ([{ isIntersecting }]) => {
-                // console.log(isIntersecting);
-                if (isIntersecting) {
-                    // 进入视口区域
-                    el.src = binding.value // 赋值图片url给src属性
-                }
-            },
-        )
-    }
-});
+
+app.mount('#app') // 挂载必须在最后！！！
