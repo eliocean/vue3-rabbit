@@ -28,3 +28,15 @@ export const getHotAPI = () => {
         method: 'GET'
     })
 }
+
+
+/**
+ * 获取所有商品
+ * @returns 
+ */
+export const getGoodsAPI = () => {
+    return httpInstance({
+        url: '/home/goods',
+        method: 'GET'
+    })
+}
