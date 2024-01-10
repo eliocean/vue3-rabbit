@@ -19,10 +19,12 @@ const router = createRouter({
       children: [
         {
           path: '',
+          name: 'layout-home',
           component: Home
         },
         {
           path: 'category',
+          name: 'layout-category',
           component: Category
         }
       ]
