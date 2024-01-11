@@ -1,9 +1,16 @@
 import httpInstance from "@/utils/http";
-// 获取banner 
-export function getBannerAPI() {
+/**
+ * 获取轮播图 banner
+ * @returns 
+ */
+export function getBannerAPI(params = {}) {
+    const { distribution = '1' } = params;
     return httpInstance({
         url: '/home/banner',
-        method: 'GET'
+        method: 'GET',
+        params: {
+            distribution
+        }
     });
 }
 
