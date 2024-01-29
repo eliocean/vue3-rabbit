@@ -24,11 +24,14 @@ const enterHandler = (index) => {
 const target = ref(null);
 const left = ref(0);
 const top = ref(0);
+const leftBig = ref(0);
+const topBig = ref(0);
 const { elementX, elementY, isOutside } = useMouseInElement(target);
 watch([elementX, elementY], () => {
     if (isOutside.value) {
         return
     }
+    console.log(leftBig.value, topBig.value)
 
     if (elementX.value > 100 && elementX.value < 300) {
         left.value = elementX.value - 100; // 设置滑块的left值，使其跟随鼠标移动
@@ -48,14 +51,13 @@ watch([elementX, elementY], () => {
     if (elementY.value > 300) {
         top.value = 200;
     }
+
+    //控制大图显示
+    leftBig.value = -left.value * 2;
+    topBig.value = -top.value * 2;
+
 })
 
-
-//控制大图显示
-const leftBig = ref(0);
-const topBig = ref(0);
-leftBig.value = -left.value * 2;
-topBig.value = -top.value * 2;
 
 </script>
 
@@ -81,7 +83,7 @@ topBig.value = -top.value * 2;
         <!-- 放大镜大图 -->
         <div class="large" :style="[
             {
-                backgroundImage: `url(${imageList[0]})`,
+                backgroundImage: `url(${imageList[activeImageIndex]})`,
                 backgroundPositionX: `${leftBig}px`,
                 backgroundPositionY: `${topBig}px`,
             },
