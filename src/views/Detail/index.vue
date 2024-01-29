@@ -4,6 +4,7 @@ import { useRoute } from "vue-router";
 import { ref, onMounted } from "vue";
 import DetailHot from "./components/DetailHot.vue";
 import ImageView from "@/components/ImageView/index.vue";
+import XtxSku from "@/components/XtxSku/index.vue";
 
 const route = useRoute();
 const goods = ref({});
@@ -16,6 +17,10 @@ const getGoods = async () => {
 onMounted(() => getGoods());
 
 
+//sku被操作时
+const skuChange = (sku) => {
+    console.log(sku);
+}
 
 
 
@@ -46,7 +51,7 @@ onMounted(() => getGoods());
                     <div class="goods-info">
                         <div class="media">
                             <!-- 图片预览区 -->
-                            <ImageView :image-list="goods.mainPictures"/>
+                            <ImageView :image-list="goods.mainPictures" />
                             <!-- 统计数量 -->
                             <ul class="goods-sales">
                                 <li>
@@ -95,6 +100,7 @@ onMounted(() => getGoods());
                                 </dl>
                             </div>
                             <!-- sku组件 -->
+                            <XtxSku :goods="goods" @change="skuChange" />
 
                             <!-- 数据组件 -->
 
