@@ -20,13 +20,16 @@ const enterHandler = (index) => {
 }
 
 
-//获取鼠标在盒子的相对位置
+//鼠标滑块效果
 const target = ref(null);
 const left = ref(0);
 const top = ref(0);
 const { elementX, elementY, isOutside } = useMouseInElement(target);
 watch([elementX, elementY], () => {
-    console.log("鼠标位置变化了");
+    if (isOutside.value) {
+        return
+    }
+
     if (elementX.value > 100 && elementX.value < 300) {
         left.value = elementX.value - 100; // 设置滑块的left值，使其跟随鼠标移动
     }
@@ -47,6 +50,13 @@ watch([elementX, elementY], () => {
     }
 })
 
+
+//控制大图显示
+const leftBig = ref(0);
+const topBig = ref(0);
+leftBig.value = -left.value * 2;
+topBig.value = -top.value * 2;
+
 </script>
 
 
@@ -59,7 +69,7 @@ watch([elementX, elementY], () => {
         <div class="middle" ref="target">
             <img :src="imageList[activeImageIndex]" alt="" />
             <!-- 蒙层小滑块 -->
-            <div class="layer" :style="{ left: `${left}px`, top: `${top}px` }"></div>
+            <div class="layer" v-show="!isOutside" :style="{ left: `${left}px`, top: `${top}px` }"></div>
         </div>
         <!-- 小图列表 -->
         <ul class="small">
@@ -72,10 +82,10 @@ watch([elementX, elementY], () => {
         <div class="large" :style="[
             {
                 backgroundImage: `url(${imageList[0]})`,
-                backgroundPositionX: `0px`,
-                backgroundPositionY: `0px`,
+                backgroundPositionX: `${leftBig}px`,
+                backgroundPositionY: `${topBig}px`,
             },
-        ]" v-show="false"></div>
+        ]" v-show="!isOutside"></div>
     </div>
 </template>
 
