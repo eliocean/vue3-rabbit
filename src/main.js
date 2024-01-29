@@ -18,5 +18,8 @@ app.use(router)
 import { imgLazyLoadPlugin } from '@/directives'
 app.use(imgLazyLoadPlugin);
 
+// 引入全局组件注册插件
+import { componentPlugin } from '@/components'
+app.use(componentPlugin);
 
 app.mount('#app') // 挂载必须在最后！！！
