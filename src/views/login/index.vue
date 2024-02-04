@@ -2,6 +2,11 @@
 <script setup>
 // 表单校验
 import { ref } from 'vue';
+import { loginAPI } from '@/apis/user'
+import 'element-plus/theme-chalk/el-message.css'
+import { ElMessage } from 'element-plus'
+import { useRouter } from 'vue-router'
+
 
 const form = ref({
   account: '',
@@ -28,13 +33,25 @@ const rules = {
   ]
 }
 
+const router = useRouter()
+
 // 获取form实例做统一校验
 const formRef = ref(null)
-const doLogin = ()=>{
-  formRef.value.validate((valid) => {
+const doLogin = () => {
+  formRef.value.validate(async (valid) => {
     if (valid) {
       // 验证通过，发送登录请求
-      console.log('登录成功');
+      const { account, password } = form.value
+      const loginRes = await loginAPI({ account, password })
+      // console.log(loginRes);
+      // 提示用户
+      ElMessage({
+        message: "登录成功",
+        type: 'success'
+      })
+      // 跳转组件
+      router.replace({ path: '/' })
+
     } else {
       console.log('登录失败');
     }

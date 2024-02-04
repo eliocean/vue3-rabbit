@@ -27,7 +27,7 @@ const getHosList = async () => {
         // limit: 3
     }
     )
-    hotList.value = res.data.result
+    hotList.value = res.result
     // console.log(hotList.value);
 }
 

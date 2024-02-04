@@ -12,7 +12,7 @@ export function useBanner() {
             distribution: '2'
         });
         // console.log(res);
-        bannerList.value = res.data.result;
+        bannerList.value = res.result;
     }
 
     onMounted(() => getBanner());

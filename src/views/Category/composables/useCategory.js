@@ -10,7 +10,7 @@ export function useCategory() {
     const getCategoryData = async (id = route.params.id) => {
         // console.log(route.params);
         const res = await getCategoryAPI(id);
-        categoryData.value = res.data.result;
+        categoryData.value = res.result;
         // console.log(categoryData.value);
     }
 
