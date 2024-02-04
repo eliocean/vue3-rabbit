@@ -74,9 +74,9 @@ watch([elementX, elementY], () => {
 
 
 <template>
-    {{ elementX }} <br>
+    <!-- {{ elementX }} <br>
     {{ elementY }} <br>
-    {{ isOutside }}
+    {{ isOutside }} -->
     <div class="goods-image">
         <!-- 左侧大图-->
         <div class="middle" ref="target">
