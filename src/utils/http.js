@@ -2,6 +2,7 @@
 import axios from "axios";
 import { ElMessage } from "element-plus";
 import { uesUserStore } from '@/stores/user'
+import router from '@/router'
 
 const httpInstance = axios.create({
   baseURL: "http://pcapi-xiaotuxian-front-devtest.itheima.net",
@@ -28,6 +29,14 @@ httpInstance.interceptors.response.use(res => res.data, error => {
     type: 'warning',
     message: error.response.data.message
   })
+
+  // 401 token过期处理
+  if (error.response.status === 401) {
+    const userStore = uesUserStore();
+    userStore.clearUserInfo();
+    router.push("/login");
+  }
+
   return Promise.reject(error);
 })
 
