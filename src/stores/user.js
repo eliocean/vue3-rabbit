@@ -9,7 +9,11 @@ export const uesUserStore = defineStore('user', () => {
         userInfo.value = loginRes.result
     }
 
-    return { userInfo, getUserInfo }
+    const clearUserInfo = () => {
+        userInfo.value = {} // 清除用户信息
+    }
+
+    return { userInfo, getUserInfo,clearUserInfo }
 }, {
     persist: true,
 },)
