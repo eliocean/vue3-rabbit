@@ -2,11 +2,12 @@
 <script setup>
 // 表单校验
 import { ref } from 'vue';
-import { loginAPI } from '@/apis/user'
 import 'element-plus/theme-chalk/el-message.css'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
+import { uesUserStore } from '@/stores/user'
 
+const userStore = uesUserStore()
 
 const form = ref({
   account: '',
@@ -42,8 +43,8 @@ const doLogin = () => {
     if (valid) {
       // 验证通过，发送登录请求
       const { account, password } = form.value
-      const loginRes = await loginAPI({ account, password })
-      // console.log(loginRes);
+      await userStore.getUserInfo({ account, password })
+
       // 提示用户
       ElMessage({
         message: "登录成功",
