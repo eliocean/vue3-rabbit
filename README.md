@@ -61,3 +61,8 @@ npm i axios
 ```sh
 npm i @vueuse/core
 ```
+
+### pinia 持久化到localStorage
+```sh
+npm i pinia-plugin-persistedstate
+```

@@ -10,4 +10,6 @@ export const uesUserStore = defineStore('user', () => {
     }
 
     return { userInfo, getUserInfo }
-})
+}, {
+    persist: true,
+},)
