@@ -74,7 +74,10 @@ export const useCartStore = defineStore("cart", () => {
         cartList.value.forEach((item) => item.selected = selected)
     }
 
-    return { cartList, addCart, delFromCart, sumCount, sumPrice, singleCheck, isAll, allCheck, selectedCount, selectedPrice, clearCart }
+    return {
+        cartList, addCart, delFromCart, sumCount, sumPrice, singleCheck,
+        isAll, allCheck, selectedCount, selectedPrice, clearCart, updateCart
+    }
 }, {
     persist: true
 })
