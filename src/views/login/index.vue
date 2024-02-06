@@ -5,7 +5,7 @@ import { ref } from 'vue';
 import 'element-plus/theme-chalk/el-message.css'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
-import { uesUserStore } from '@/stores/user'
+import { uesUserStore } from '@/stores/userStore'
 
 const userStore = uesUserStore()
 
@@ -346,3 +346,4 @@ const doLogin = () => {
   color: #fff;
 }
 </style>
+@/stores/userStore

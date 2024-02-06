@@ -155,4 +155,4 @@ const categoryStore = useCategoryStore();
         }
     }
 }
-</style>
+</style>@/stores/categoryStore

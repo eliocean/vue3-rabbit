@@ -1,7 +1,7 @@
 // axios 接口请求封装
 import axios from "axios";
 import { ElMessage } from "element-plus";
-import { uesUserStore } from '@/stores/user'
+import { uesUserStore } from '@/stores/userStore'
 import router from '@/router'
 
 const httpInstance = axios.create({
