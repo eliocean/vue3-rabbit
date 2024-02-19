@@ -79,5 +79,5 @@ cdshi0002/123456
 
 ### 支付宝沙箱账号
 ```
-askgxl8276@sandbox.com/111111
+vudgtv0096@sandbox.com/111111 （支付宝开放平台申请）
 ```
