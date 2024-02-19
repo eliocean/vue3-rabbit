@@ -12,6 +12,7 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
+
 ```sh
 npm install
 ```
@@ -65,4 +66,13 @@ npm i @vueuse/core
 ### pinia 持久化到localStorage
 ```sh
 npm i pinia-plugin-persistedstate
+```
+
+
+### 测试账号
+```
+xiaotuxian001/123456
+cdshi0001/123456
+cdshi0002/123456
+……
 ```

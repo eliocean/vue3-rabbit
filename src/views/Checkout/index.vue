@@ -13,7 +13,20 @@ const getCheckoutInfo = async () => {
 
 onMounted(() => getCheckoutInfo())
 
+// 控制弹窗打开
+const showDialog = ref(false)
 
+// 切换地址
+const activeAddress = ref({})
+const switchAddress = (item) =>{
+  activeAddress.value = item
+  
+}
+
+const confirm = ()  =>{
+  curAddress.value = activeAddress.value
+  showDialog.value = false
+}
 
 </script>
 
