@@ -7,6 +7,7 @@ import SubCategory from '@/views/SubCategory/index.vue'
 import Detail from '@/views/Detail/index.vue'
 import CartList from '@/views/CartList/index.vue'
 import CheckOut from '@/views/Checkout/index.vue'
+import Pay from '@/views/Pay/index.vue'
 
 
 const router = createRouter({
@@ -51,6 +52,11 @@ const router = createRouter({
           path: 'checkout',
           name: 'checkout',
           component: CheckOut
+        },
+        {
+          path: 'pay',
+          name: 'pay',
+          component: Pay
         }
       ]
     }
